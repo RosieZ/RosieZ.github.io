@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="hello, this is happy share">
 <meta property="og:description" content="这里主要讨论的是单页面应用SPA&amp;amp;多页面应用MPA，以及客户端渲染CSR&amp;amp;服务器渲染SSR。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-28T09:10:28.000Z">
+<meta property="og:updated_time" content="2018-03-08T03:17:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发方式">
 <meta name="twitter:description" content="这里主要讨论的是单页面应用SPA&amp;amp;多页面应用MPA，以及客户端渲染CSR&amp;amp;服务器渲染SSR。">
@@ -173,11 +173,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多页面应用MPA-amp-单页面应用SPA"><span class="toc-text">多页面应用MPA &amp; 单页面应用SPA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-对比"><span class="toc-text">1.对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SPA的开发方式"><span class="toc-text">2.SPA的开发方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端渲染CSR-amp-服务器渲染SSR"><span class="toc-text">客户端渲染CSR &amp; 服务器渲染SSR</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-优缺点"><span class="toc-text">1.优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-场景"><span class="toc-text">2.场景</span></a></li></ol></li></ol>
+</div>
         <p>这里主要讨论的是单页面应用SPA&amp;多页面应用MPA，以及客户端渲染CSR&amp;服务器渲染SSR。</p>
 <a id="more"></a>
 <h2 id="多页面应用MPA-amp-单页面应用SPA"><a href="#多页面应用MPA-amp-单页面应用SPA" class="headerlink" title="多页面应用MPA &amp; 单页面应用SPA"></a>多页面应用MPA &amp; 单页面应用SPA</h2><p>单页面是只有一张Web页面的应用，是一种从Web服务器加载的富客户端，单页面跳转仅刷新局部资源，公共资源仅加载一次，常用于PC端。</p>
 <p>多页面跳转刷新所有资源，每个公共资源选择性重新加载，常用于app。</p>
-<h4 id="1-对比"><a href="#1-对比" class="headerlink" title="1.对比"></a>1.对比</h4><table>
+<h3 id="1-对比"><a href="#1-对比" class="headerlink" title="1.对比"></a>1.对比</h3><table>
 <thead>
 <tr>
 <th>角度</th>
@@ -233,7 +237,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="2-SPA的开发方式"><a href="#2-SPA的开发方式" class="headerlink" title="2.SPA的开发方式"></a>2.SPA的开发方式</h4><p>单页面应用的基本元素： <strong> 页面路由 </strong>。通过某种方式，如URL hash来说明当前所在页面，并拥有从一个页面跳转到另一个页面的入口。</p>
+<h3 id="2-SPA的开发方式"><a href="#2-SPA的开发方式" class="headerlink" title="2.SPA的开发方式"></a>2.SPA的开发方式</h3><p>单页面应用的基本元素： <strong> 页面路由 </strong>。通过某种方式，如URL hash来说明当前所在页面，并拥有从一个页面跳转到另一个页面的入口。</p>
 <h2 id="客户端渲染CSR-amp-服务器渲染SSR"><a href="#客户端渲染CSR-amp-服务器渲染SSR" class="headerlink" title="客户端渲染CSR &amp; 服务器渲染SSR"></a>客户端渲染CSR &amp; 服务器渲染SSR</h2><blockquote>
 <p>渲染：如果我们只是想显示一堆不变的数据，那么直接写一个a.html丢到服务器让客户端访问就可以啦。但这是数据一般都是变化的，所有需要分离数据和视图，然后使用一种技术将数据塞到视图中，这种技术叫做渲染。</p>
 </blockquote>
@@ -247,11 +251,11 @@
 <li>服务器渲染，用后端模板引擎生成html。服务器接到用户请求后，计算出需要的数据，然后将数据更新成视图发给客户端。</li>
 </ul>
 <p>服务器渲染流程：请求一个html -&gt; 服务端请求数据（内网请求快）-&gt; 服务器初始渲染（服务端性能好，较快）-&gt; 服务端返回有正确内容的页面 -&gt; 客户端请求js/css文件 -&gt; 等待js文件下载完成 -&gt; 等待js加载并初始化完成 -&gt; 客户端把剩下一小部分渲染完成（内容小，渲染快）</p>
-<h4 id="1-优缺点"><a href="#1-优缺点" class="headerlink" title="1.优缺点"></a>1.优缺点</h4><ul>
+<h3 id="1-优缺点"><a href="#1-优缺点" class="headerlink" title="1.优缺点"></a>1.优缺点</h3><ul>
 <li>客户端渲染CSR<br>优点：后端只提供数据，前端做视图和交互逻辑，分工明确。服务器只提供接口，路由和渲染都交给前端，服务器计算压力变轻。<br>缺点：用户等待时间变长，尤其是请求数多而且有一定先后顺序的时候。单页面应用的话，首屏速度慢，不利于SEO。</li>
 <li>浏览器渲染SSR<br>优点：响应快，用户体验较好，有SEO优化。nodejs层的服务器渲染，让前端性能优化更顺手，可操作空间大了。<br>缺点：如果不是增加一个node层的话，前后端分工不明，不能很好地并行开发。另外增加量服务器计算压力。</li>
 </ul>
-<h4 id="2-场景"><a href="#2-场景" class="headerlink" title="2.场景"></a>2.场景</h4><p>在用户体验要求比较高的页面（首屏）、重复较多的公共页面可以考虑使用服务器渲染，减少ajax请求和提升用户体验。</p>
+<h3 id="2-场景"><a href="#2-场景" class="headerlink" title="2.场景"></a>2.场景</h3><p>在用户体验要求比较高的页面（首屏）、重复较多的公共页面可以考虑使用服务器渲染，减少ajax请求和提升用户体验。</p>
 
       
 
@@ -365,6 +369,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多页面应用MPA-amp-单页面应用SPA"><span class="toc-number">1.</span> <span class="toc-text">多页面应用MPA &amp; 单页面应用SPA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-对比"><span class="toc-number">1.1.</span> <span class="toc-text">1.对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SPA的开发方式"><span class="toc-number">1.2.</span> <span class="toc-text">2.SPA的开发方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端渲染CSR-amp-服务器渲染SSR"><span class="toc-number">2.</span> <span class="toc-text">客户端渲染CSR &amp; 服务器渲染SSR</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-优缺点"><span class="toc-number">2.1.</span> <span class="toc-text">1.优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-场景"><span class="toc-number">2.2.</span> <span class="toc-text">2.场景</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -379,6 +396,8 @@
   
 
   
+
+
 
 
           </div>
@@ -467,14 +486,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异步编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开发方式</a>
               </li>
              
@@ -484,6 +495,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">服务器渲染SSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">异步编程</a>
               </li>
             
             <div class="clearfix"></div>
